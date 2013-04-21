@@ -61,6 +61,55 @@ public class BitmapObject {
 		position_Y = 0;
 		cnt = 0;
 	}
+	/**
+	 * Contractor
+	 * @param bitmap BITMAP画像
+	 * @param posX X初期位置
+	 * @param posY Y初期位置
+	 */
+	public BitmapObject(Bitmap bitmap, float posX, float posY) {
+		Log.d(CLASS, "BitmapObject(bitmap,X,Y)");
+		
+		bitMapList = new ArrayList<Bitmap>();
+		bitMapList.add(bitmap);
+		position_X = posX;
+		position_Y = posY;
+		cnt = 0;
+	}
+	/**
+	 * Contractor
+	 * @param bitmap BITMAP画像配列
+	 */
+	public BitmapObject(Bitmap[] bitmap) {
+		Log.d(CLASS, "BitmapObject(bitmap[])");
+		
+		bitMapList = new ArrayList<Bitmap>();
+		for(int i=0;bitmap.length>i;i++){
+			bitMapList.add(bitmap[i]);
+		}
+		
+		position_X = 0;
+		position_Y = 0;
+		cnt = 0;
+	}
+	/**
+	 * Contractor
+	 * @param bitmap BITMAP画像配列
+	 * @param posX X初期位置
+	 * @param posY Y初期位置
+	 */
+	public BitmapObject(Bitmap[] bitmap, float posX, float posY) {
+		Log.d(CLASS, "BitmapObject(bitmap[],X,Y)");
+		
+		bitMapList = new ArrayList<Bitmap>();
+		for(int i=0;bitmap.length>i;i++){
+			bitMapList.add(bitmap[i]);
+		}
+		
+		position_X = posX;
+		position_Y = posY;
+		cnt = 0;
+	}
 	
 	/**
 	 * 描画処理
