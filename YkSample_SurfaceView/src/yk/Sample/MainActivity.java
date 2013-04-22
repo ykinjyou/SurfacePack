@@ -19,9 +19,13 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		Resources res = getResources();
-		Bitmap bm = BitmapFactory.decodeResource(res, R.drawable.ic_launcher);
+		Bitmap bm1 = BitmapFactory.decodeResource(res, R.drawable.mon_001);
+		Bitmap bm2 = BitmapFactory.decodeResource(res, R.drawable.mon_002);
+		Bitmap bm3 = BitmapFactory.decodeResource(res, R.drawable.mon_003);
+		Bitmap bm4 = BitmapFactory.decodeResource(res, R.drawable.mon_004);
+		Bitmap bm5 = BitmapFactory.decodeResource(res, R.drawable.mon_005);
 		
-		final BitmapObject bo = new BitmapObject(bm);
+		final BitmapObject bo = new BitmapObject(new Bitmap[]{bm1,bm2,bm3,bm4,bm5});
 		SurfaceScreen sf = new SurfaceScreen(this, 500);
 		sf.setOnDrawing(new SurfaceOriginalDrawListener() {
 			@Override

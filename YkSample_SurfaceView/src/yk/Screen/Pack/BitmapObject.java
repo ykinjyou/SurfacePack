@@ -18,7 +18,7 @@ public class BitmapObject {
 	/** BITMAPLIST */
 	private ArrayList<Bitmap> bitMapList;
 	/** LoopFlg */
-	private boolean loop = false;
+	private boolean loop = true;
 	/** カウント */
 	private int cnt;
 	/** X座標 */
@@ -110,6 +110,36 @@ public class BitmapObject {
 		position_Y = posY;
 		cnt = 0;
 	}
+	/**
+	 * Contractor
+	 * @param bitmap 画像リスト
+	 */
+	public BitmapObject(ArrayList<Bitmap> bitmap) {
+		Log.d(CLASS, "BitmapObject(ArrayList<Bitmap>)");
+		
+		bitMapList = new ArrayList<Bitmap>();
+		bitMapList.addAll(bitmap);
+		
+		position_X = 0;
+		position_Y = 0;
+		cnt = 0;
+	}
+	/**
+	 * Contractor
+	 * @param bitmap 画像リスト
+	 * @param posX X初期位置
+	 * @param posY Y初期位置
+	 */
+	public BitmapObject(ArrayList<Bitmap> bitmap, float posX, float posY) {
+		Log.d(CLASS, "BitmapObject(ArrayList<Bitmap>,X,Y)");
+		
+		bitMapList = new ArrayList<Bitmap>();
+		bitMapList.addAll(bitmap);
+		
+		position_X = posX;
+		position_Y = posY;
+		cnt = 0;
+	}
 	
 	/**
 	 * 描画処理
@@ -120,14 +150,16 @@ public class BitmapObject {
 		paint = new Paint();
 		canvas.drawBitmap(bitMapList.get(cnt), position_X, position_Y, paint);
 		
-		if(bitMapList.size() >= cnt){
-			
+		/*
+		 * List範囲内ならcnt追加
+		 * List範囲を超えた場合loopフラグがONなら0を再セット
+		 */
+		if((bitMapList.size() - 1) > cnt){
+			cnt++;
+		}else{
 			if(loop == true){
 				cnt = 0;
 			}
-			
-		}else{
-			cnt++;
 		}
 		
 	}
